@@ -189,6 +189,27 @@ function center()
     end
 end
 
+function centerWide()
+    if hs.window.focusedWindow() then
+        local win = hs.window.frontmostWindow()
+        local id = win:id()
+        local screen = win:screen()
+
+        cell = hs.grid.get(win, screen)
+
+        cell.w = ( fullWidth / 9 ) * 6
+        cell.h = ( fullHeight / 5 ) * 4
+        cell.x = ( fullWidth - cell.w ) / 2
+        cell.y = ( fullWidth - cell.h ) / 2
+
+        hs.grid.set(win, cell, screen)
+
+        local log = hs.logger.new('mymodule','debug')
+        log.i(cell) -- will print "[mymodule] Initializing" to the console
+
+    end
+end
+
 function left()
     if hs.window.focusedWindow() then
         local win = hs.window.frontmostWindow()
@@ -287,6 +308,10 @@ end)
 
 hs.hotkey.bind(hyperalt, "3", function ()
     center()
+end)
+
+hs.hotkey.bind(hyperalt, "4", function ()
+    centerWide()
 end)
 
 hs.hotkey.bind(hyper, "4", function ()
