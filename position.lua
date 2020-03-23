@@ -109,10 +109,10 @@ function full()
 
         cell = hs.grid.get(win, screen)
 
-        cell.w = fullWidth
-        cell.h = fullHeight
-        cell.x = 0
-        cell.y = 0
+        cell.w = fullWidth - .4
+        cell.h = fullHeight - .5
+        cell.x = .2
+        cell.y = .25
 
         hs.grid.set(win, cell, screen)
     end
