@@ -314,7 +314,9 @@ hs.hotkey.bind(hyperalt, "4", function ()
     centerWide()
 end)
 
-hs.hotkey.bind(hyper, "4", function ()
+-- Something is blocking ctrl+4
+-- Switching to the key right below it, r, instead.
+hs.hotkey.bind(hyper, "r", function ()
     left()
 end)
 
